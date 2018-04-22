@@ -309,3 +309,95 @@ npm start
 abra http://localhost:3000/
 
 Este é o exemplo mais avançado. É denso por design. Ele cobre a manutenção de entidades buscadas em um cache normalizado, implementando um middleware personalizado para chamadas de API, renderizando dados parcialmente carregados, paginação, respostas de armazenamento em cache, exibindo mensagens de erro e roteamento. Além disso, inclui Redux DevTools.
+
+
+
+## Três Princípios
+Redux pode ser descrito em três princípios fundamentais:
+
+Única fonte de verdade
+
+O estado de todo o aplicativo é armazenado em uma árvore de objetos em um único armazenamento.
+
+Isso facilita a criação de aplicativos universais, pois o estado do servidor pode ser serializado e hidratado no cliente sem nenhum esforço extra de codificação. Uma única árvore de estado também facilita a depuração ou inspeção de um aplicativo; Ele também permite que você persista o estado do seu aplicativo em desenvolvimento, para um ciclo de desenvolvimento mais rápido. Algumas funcionalidades que têm sido tradicionalmente difíceis de implementar - Desfazer / Refazer, por exemplo - podem subitamente tornar-se triviais de implementar, se todo o seu estado estiver armazenado em uma única árvore.
+
+```js
+console.log (store.getState ())
+
+/ * Impressões
+{
+  visibilityFilter: 'SHOW_ALL',
+  todos: [
+    {
+      text: 'Considere usar o Redux',
+      concluído: true
+    }
+    {
+      texto: 'Manter todo o estado em uma única árvore',
+      completed: false
+    }
+  ]
+}
+* /
+```
+Estado é somente leitura
+
+A única maneira de mudar o estado é emitir uma ação, um objeto descrevendo o que aconteceu.
+
+Isso garante que nem as exibições nem os retornos de chamada da rede jamais serão gravados diretamente no estado. Em vez disso, eles expressam a intenção de transformar o estado. Como todas as mudanças são centralizadas e acontecem uma a uma em uma ordem estrita, não há condições sutis de corrida a serem observadas. Como as ações são apenas objetos simples, elas podem ser registradas, serializadas, armazenadas e, posteriormente, reproduzidas para fins de depuração ou teste.
+```js
+store.dispatch ({
+  tipo: 'COMPLETE_TODO',
+  índice: 1
+})
+
+store.dispatch ({
+  tipo: 'SET_VISIBILITY_FILTER',
+  filtro: 'SHOW_COMPLETED'
+})
+```
+As alterações são feitas com funções puras
+
+Para especificar como a árvore de estados é transformada por ações, você escreve redutores puros.
+
+Redutores são apenas funções puras que tomam o estado anterior e uma ação, e retornam o próximo estado. Lembre-se de retornar objetos de novo estado, em vez de alterar o estado anterior. Você pode começar com um único redutor e, à medida que seu aplicativo cresce, divida-o em redutores menores que gerenciam partes específicas da árvore de estados. Como os redutores são apenas funções, você pode controlar a ordem na qual eles são chamados, passar dados adicionais ou até mesmo fazer reduções reutilizáveis ​​para tarefas comuns, como paginação.
+```js
+function visibilityFilter (state = 'SHOW_ALL', ação) {
+  switch (action.type) {
+    caso 'SET_VISIBILITY_FILTER':
+      return action.filter
+    padrão:
+      estado de retorno
+  }
+}
+
+function todos (state = [], ação) {
+  switch (action.type) {
+    case 'ADD_TODO':
+      Retorna [
+        ...Estado,
+        {
+          text: action.text,
+          completed: false
+        }
+      ]
+    caso 'COMPLETE_TODO':
+      return state.map ((todo, index) => {
+        if (index === action.index) {
+          return Object.assign ({}, todo, {
+            completado: true
+          })
+        }
+        retorno todo
+      })
+    padrão:
+      estado de retorno
+  }
+}
+
+import {combineReducers, createStore} de 'redux'
+const reducer = combineReducers ({visibilityFilter, todos})
+const store = createStore (redutor)
+```
+É isso aí! Agora você sabe o que é Redux.
+
