@@ -164,5 +164,148 @@ Nesta página, apenas apresentaremos alguns deles que os mantenedores do Redux e
 * Chart Monitor - Um monitor gráfico para Redux DevTools
 * Ações de filtro - Redux monitor composable DevTools com a capacidade de filtrar ações
 
+## Exemplos
+O Redux é distribuído com alguns exemplos em seu código-fonte. A maioria desses exemplos também está no CodeSandbox, este é um editor on-line que permite que você jogue com os exemplos online.
 
+### Counter Vanilla
 
+Execute o exemplo do Counter Vanilla:
+```
+git clone https://github.com/reactjs/redux.git
+
+cd redux/examples/counter-vanilla
+cat index.html
+```
+Ele não requer um sistema de construção ou uma estrutura de visualização e existe para mostrar a API do Redux em bruto usada com o ES5.
+
+### Contador
+
+Execute o exemplo do contador:
+```
+git clone https://github.com/reactjs/redux.git
+
+cd redux/examples/counter
+npm install
+npm start
+```
+abra http://localhost:3000/
+
+Este é o exemplo mais básico do uso do Redux junto com o React. Por simplicidade, re-renderiza o componente React manualmente quando o armazenamento é alterado. Em projetos reais, você provavelmente desejará usar as vinculações React Redux de alto desempenho.
+
+Este exemplo inclui testes.
+
+### Todos
+
+Execute o exemplo Todos:
+```
+git clone https://github.com/reactjs/redux.git
+
+cd redux/examples/todos
+npm install
+npm start
+```
+abra http://localhost:3000/
+
+Este é o melhor exemplo para entender melhor como as atualizações de estado funcionam em conjunto com os componentes no Redux. Ele mostra como os redutores podem delegar ações de manipulação para outros redutores e como você pode usar o React Redux para gerar componentes de contêineres a partir de seus componentes de apresentação.
+
+Este exemplo inclui testes.
+
+### Todos with Undo
+
+Execute o exemplo Todos with Undo:
+```
+git clone https://github.com/reactjs/redux.git
+
+cd redux/examples/todos-with-undo
+npm install
+npm start
+
+```
+abra http://localhost:3000/
+
+Esta é uma variação do exemplo anterior. É quase idêntico, mas além disso mostra como envolver seu redutor com o Redux Undo permite adicionar uma funcionalidade Desfazer / Refazer ao seu aplicativo com algumas linhas de código.
+
+### TodoMVC
+
+Execute o exemplo de TodoMVC:
+```
+git clone https://github.com/reactjs/redux.git
+
+cd redux/examples/todomvc
+npm install
+npm start
+```
+abra http://localhost:3000/
+
+Este é o exemplo clássico do TodoMVC. Está aqui para comparação, mas abrange os mesmos pontos que o exemplo Todos.
+
+Este exemplo inclui testes.
+
+### Carrinho de compras
+
+Execute o exemplo do carrinho de compras:
+```
+git clone https://github.com/reactjs/redux.git
+
+cd redux/examples/shopping-cart
+npm install
+npm start
+```
+abra http://localhost:3000/
+
+Este exemplo mostra padrões importantes de redux idiomáticos que se tornam importantes à medida que seu aplicativo cresce. Em particular, ele mostra como armazenar entidades de maneira normalizada por seus IDs, como compor redutores em vários níveis e como definir seletores ao lado dos redutores para que o conhecimento sobre a forma do estado seja encapsulado. Ele também demonstra o registro em log com o Redux Logger e o despacho condicional de ações com o middleware Redux Thunk.
+
+### Tree View
+Execute o exemplo da vista em árvore:
+```
+git clone https://github.com/reactjs/redux.git
+
+cd redux/examples/tree-view
+npm install
+npm start
+```
+abra http://localhost:3000/
+
+Este exemplo demonstra a renderização de uma exibição em árvore profundamente aninhada e representa seu estado em um formato normalizado, por isso é fácil atualizar a partir de redutores. Um bom desempenho de renderização é obtido pelos componentes de contêiner que assinam granularmente apenas os nós de árvore que eles renderizam.
+
+Este exemplo inclui testes.
+
+### Assíncrono
+Execute o exemplo async:
+```
+git clone https://github.com/reactjs/redux.git
+
+cd redux/examples/async
+npm install
+npm start
+```
+abra http://localhost:3000/
+
+Este exemplo inclui a leitura de uma API assíncrona, a busca de dados em resposta à entrada do usuário, a exibição de indicadores de carregamento, o armazenamento em cache da resposta e a invalidação do cache. Ele usa o middleware Redux Thunk para encapsular efeitos colaterais assíncronos.
+
+### Universal
+Execute o exemplo Universal:
+```
+git clone https://github.com/reactjs/redux.git
+
+cd redux/examples/universal
+npm install
+npm start
+```
+abra http://localhost:3000/
+
+Esta é uma demonstração básica da renderização do servidor com o Redux e o React. Ele mostra como preparar o estado inicial da loja no servidor e transmiti-lo ao cliente para que o armazenamento do cliente possa ser inicializado a partir de um estado existente.
+
+### Mundo real
+Execute o exemplo do mundo real:
+```
+git clone https://github.com/reactjs/redux.git
+
+cd redux/examples/real-world
+npm install
+npm start
+
+```
+abra http://localhost:3000/
+
+Este é o exemplo mais avançado. É denso por design. Ele cobre a manutenção de entidades buscadas em um cache normalizado, implementando um middleware personalizado para chamadas de API, renderizando dados parcialmente carregados, paginação, respostas de armazenamento em cache, exibindo mensagens de erro e roteamento. Além disso, inclui Redux DevTools.
