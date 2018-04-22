@@ -2,6 +2,17 @@
 
 O Redux é um contêiner de estado previsível para aplicativos JavaScript.
 
+Como os requisitos para aplicativos de página única do JavaScript se tornaram cada vez mais complicados, nosso código deve gerenciar mais estados do que nunca. Esse estado pode incluir respostas do servidor e dados em cache, bem como dados criados localmente que ainda não foram persistidos no servidor. O estado da interface do usuário também está aumentando em complexidade, já que precisamos gerenciar rotas ativas, guias selecionadas, spinners, controles de paginação e assim por diante.
+
+Gerenciar esse estado em constante mudança é difícil. Se um modelo puder atualizar outro modelo, uma exibição poderá atualizar um modelo, que atualizará outro modelo, e isso, por sua vez, poderá fazer com que outra visão seja atualizada. Em algum momento, você não entende mais o que acontece no seu aplicativo, pois perdeu o controle sobre quando, por que e como está. Quando um sistema é opaco e não determinístico, é difícil reproduzir erros ou adicionar novos recursos.
+
+Como se isso não fosse ruim o suficiente, considere os novos requisitos se tornando comuns no desenvolvimento de produtos front-end. Como desenvolvedores, espera-se que lidemos com atualizações otimistas, renderização do lado do servidor, buscando dados antes de realizar transições de rotas e assim por diante. Nós nos encontramos tentando administrar uma complexidade com a qual nunca tivemos que lidar antes, e inevitavelmente fazemos a pergunta: é hora de desistir? A resposta é não.
+
+Essa complexidade é difícil de lidar, pois estamos misturando dois conceitos que são muito difíceis para a mente humana pensar: mutação e assincronia. Eu os chamo de Mentos e Coca-Cola. Ambos podem ser ótimos na separação, mas juntos eles criam uma bagunça. Bibliotecas como o React tentam resolver esse problema na camada de visualização, removendo tanto a assincronia quanto a manipulação direta do DOM. No entanto, gerenciar o estado de seus dados é deixado para você. É aqui que o Redux entra.
+
+Seguindo as etapas do Flux, CQRS e Event Sourcing, o Redux tenta tornar as mutações de estado previsíveis, impondo certas restrições sobre como e quando as atualizações podem acontecer. Essas restrições são refletidas nos três princípios do Redux.
+
+
 * Conceitos Básicos
 * Ecosystem
 * Examples
