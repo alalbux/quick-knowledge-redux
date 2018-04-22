@@ -1,1 +1,1 @@
-# quick-knowledge-redux
+# Quick knowledge Redux
