@@ -13,13 +13,10 @@ Essa complexidade é difícil de lidar, pois estamos misturando dois conceitos q
 Seguindo as etapas do Flux, CQRS e Event Sourcing, o Redux tenta tornar as mutações de estado previsíveis, impondo certas restrições sobre como e quando as atualizações podem acontecer. Essas restrições são refletidas nos três princípios do Redux.
 
 
-* Conceitos Básicos
-* Ecosystem
-* Examples
-* Introduction
-* Motivation
-* Prior Art
-* Three Principles
+* [Conceitos Básicos](#conceitos-básicos)
+* [Ecossistema](#ecossistema)
+* [Exemplos](#exemplos)
+* [Three Principles](#três-princípios)
 
 ## Conceitos Básicos
 
