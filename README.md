@@ -16,7 +16,7 @@ Seguindo as etapas do Flux, CQRS e Event Sourcing, o Redux tenta tornar as muta�
 * [Conceitos Básicos](#conceitos-básicos)
 * [Ecossistema](#ecossistema)
 * [Exemplos](#exemplos)
-* [Three Principles](#três-princípios)
+* [Três Princípios](#três-princípios)
 
 ## Conceitos Básicos
 
